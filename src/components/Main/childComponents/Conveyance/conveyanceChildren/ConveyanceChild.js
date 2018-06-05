@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import Land from "./Land/Land"
 import Grantors from "./Grantors/Grantors"
-import Grantees from './Grantees'
+import Grantees from './Grantees/Grantees'
 
 import { Button } from "antd"
 

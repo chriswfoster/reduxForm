@@ -14,7 +14,7 @@ return(
 <div style={{ width: "20vw", textAlign: "center" }}>
 <p>Parties</p>
 {parties.map((person, ind) => (
-  <Party party={person.display_name} key={ind} />
+  <Party party={person.display_name} id={ind} key={ind} />
 ))}
 </div>
 )}

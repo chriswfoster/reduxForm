@@ -12,11 +12,12 @@ const Types = {
 const itemSource = {
   beginDrag(props) {
     console.log("beginDrag")
-    const item = { src: props.src, id: props.id }
+    const item = { src: props.party, id: props.id }
     return item
   },
-  endDrag(props) {
-    console.log(props)
+  endDrag(props, monitor) {
+    const item = monitor.getItem()
+    console.log(monitor, item)
     
     return props.handleDrop(props.party)
   }

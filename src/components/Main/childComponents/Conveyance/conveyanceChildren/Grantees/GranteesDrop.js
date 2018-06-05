@@ -13,7 +13,7 @@ function collect(connect, monitor) {
   }
 }
 
-class GrantorsDrop extends Component {
+class GranteesDrop extends Component {
   constructor() {
     super()
     this.state = {
@@ -94,4 +94,4 @@ const mapStateToProps = state => state
 export default connect(
   mapStateToProps,
   {}
-)(DropTarget(Types.ITEM, cardTarget, collect)(GrantorsDrop))
+)(DropTarget(Types.ITEM, cardTarget, collect)(GranteesDrop))
