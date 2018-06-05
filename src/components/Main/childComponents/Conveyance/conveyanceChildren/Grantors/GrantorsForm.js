@@ -10,11 +10,17 @@ const Option = Select.Option
 class GrantorsForm extends Component {
     
     deleteHandler = (ind, listId) => {
-        console.log(this.props)
         let placeholder = this.props.form.conveyances
         placeholder[listId].grantors.splice(ind, 1)
         this.props.updateRedux(placeholder)
       }
+
+      selectHandler(ind, listId, val){
+        let placeholder = this.props.form.conveyances
+        placeholder[listId].grantors[ind].legal_capacity=val
+        this.props.updateRedux(placeholder)
+      }
+
 
 render() {
     const {party, ind, listId} = this.props
@@ -23,7 +29,7 @@ return(
 <p>Legal Capacity:</p>
 <Select
   defaultValue="Select"
-  onChange={() => console.log("change")}
+  onChange={(e) => this.selectHandler(ind,listId, e)}
 >
   <Option value="Individual">Individual</Option>
   <Option value="Something">Something</Option>

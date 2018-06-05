@@ -8,7 +8,7 @@ const initialState = {
     {
       grantors: [
         {
-          name: "nobody",
+          name: "Placeholder, Name",
           id: "00000-00000-0000", //UUID of the party that was dropped in
           legal_capacity: "Individual", //String value of the drop down.
           spouse_id: "00000-00000-0000" // UUID of the party dropped in spouse field.
@@ -17,7 +17,7 @@ const initialState = {
       ],
       grantees: [
         {
-          name: "nobody",
+          name: "Placeholder, Name",
           id: "00000-00000-0000", //UUID of the party that was dropped in
           legal_capacity: "Individual", //String value of the drop down.
           spouse_id: "00000-00000-0000" // UUID of the party dropped in spouse field.

@@ -19,7 +19,7 @@ class GranteesDrop extends Component {
     const {connectDropTarget } = this.props
 
     return connectDropTarget(
-      <div style={{ width: "15vw", height: "10vh", borderStyle: "dotted" }}>
+      <div className="grantorsFormCard" style={{ width: "15vw", height: "10vh", borderStyle: "dotted" }}>
         <p>Drop Grantees Here </p>
       </div>
     )

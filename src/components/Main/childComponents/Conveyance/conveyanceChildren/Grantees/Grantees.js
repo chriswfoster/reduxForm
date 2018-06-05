@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import { DropTarget } from "react-dnd"
 import GranteesDrop from "./GranteesDrop"
 
+import { Card } from "antd"
+
 const Types = {
   ITEM: "party"
 }
@@ -18,11 +20,12 @@ class Grantees extends Component {
   render() {
       const {listId} = this.props
     return (
-      <div>
+        <div style={{ width: "20vw", height: "88vh", borderRight: "solid", paddingTop: "2vh", textAlign: "center", fontWeight: "bolt", fontSize: "1.5em" }}>
+          <p>Grantees</p>
         {this.props.form.conveyances[listId].grantees.map(party => (
-          <p>{party.name}</p>
+          <Card className="grantorsFormCard">{party.name}</Card>
         ))}
-        <GranteesDrop listId={this.props.listId} />
+        <GranteesDrop className="grantorsFormCard" listId={this.props.listId} />
       </div>
     )
   }
