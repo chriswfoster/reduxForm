@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 
-import { findDOMNode } from "react-dom"
-import { DragSource, DropTarget } from "react-dnd"
+import { DragSource } from "react-dnd"
 import { connect } from "react-redux"
 import { handleDrop } from "../../../../ducks/reducer"
-import flow from "lodash/flow"
 
 const Types = {
   ITEM: "party"
@@ -32,7 +30,7 @@ function collect(connect, monitor) {
 
 class Party extends Component {
   render(props) {
-    const { isDragging, connectDragSource, src } = this.props
+    const { isDragging, connectDragSource } = this.props
     console.log(this.props)
     let partyStyle = {
       borderStyle: "dotted",
