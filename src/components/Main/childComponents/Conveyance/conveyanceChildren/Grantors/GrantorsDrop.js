@@ -69,7 +69,7 @@ const cardTarget = {
     const { id } = props
     const sourceObj = monitor.getItem()
     console.log(sourceObj, "is sourceObj")
-    if (id !== sourceObj.listId)  console.log('hi')//component.pushCard(sourceObj.card)
+    if (id !== sourceObj.listId) component.pushCard(sourceObj.card)
     return {
       listId: id
     }
