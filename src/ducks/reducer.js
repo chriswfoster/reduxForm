@@ -42,6 +42,20 @@ const initialState = {
         }
       ]
     }
+  ],
+  parties: [
+    {
+      display_name: "Evans, Thomas"
+    },
+    {
+      display_name: "Hammond, Nathan"
+    },
+    {
+      display_name: "Hamlin, Zach"
+    },
+    {
+      display_name: "Foster, Chris"
+    }
   ]
 }
 
