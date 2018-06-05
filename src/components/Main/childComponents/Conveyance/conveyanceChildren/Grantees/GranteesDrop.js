@@ -1,20 +1,10 @@
 import React, { Component } from "react"
-import update from "immutability-helper"
 
 import flow from "lodash/flow"
 
 import { connect } from "react-redux"
 import { DropTarget, DragSource } from "react-dnd"
 
-
-const Types = {
-  ITEM: "party"
-}
-function collect(connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget()
-  }
-}
 
 class GranteesDrop extends Component {
   constructor() {
@@ -26,7 +16,7 @@ class GranteesDrop extends Component {
 
 
   render() {
-    const {connectDropTarget, connectDragSource } = this.props
+    const {connectDropTarget } = this.props
 
     return connectDropTarget(
       <div style={{ width: "20vw", height: "10vh", borderStyle: "dotted" }}>

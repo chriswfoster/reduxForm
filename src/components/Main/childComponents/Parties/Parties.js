@@ -11,8 +11,8 @@ render() {
   const {parties} = this.props.form
   console.log( this.props)
 return(
-<div style={{ width: "20vw", textAlign: "center" }}>
-<p>Parties</p>
+<div style={{ width: "20vw", textAlign: "center", height: "100vh", borderRight: "solid", overflowY: "auto" }}>
+<p style={{fontWeight: "bold", fontSize: "33px"}}>Parties</p>
 {parties.map((person, ind) => (
   <Party party={person.display_name} id={ind} key={ind} />
 ))}

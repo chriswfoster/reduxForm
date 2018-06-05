@@ -12,8 +12,8 @@ class ConveyanceChild extends Component {
   render() {
     const {listId} = this.props
     return (
-      <div>
-        <Button>Delete</Button>
+      <div><div><p>Conveyance #</p>
+        <Button>Delete</Button></div>
         <div className="conveyanceListFlex">
           <Grantors listId={listId}/>
           <Land />

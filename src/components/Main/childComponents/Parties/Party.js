@@ -34,10 +34,11 @@ class Party extends Component {
     console.log(this.props)
     let partyStyle = {
       borderStyle: "dotted",
-      width: "20vw",
+      width: "15vw",
       padding: "2vh",
       fontWeight: "bold",
-      marginBottom: "1vh"
+      marginBottom: "1vh",
+      marginLeft: "2.5vw"
     }
 
     const opacity = isDragging ? .5 : 1
