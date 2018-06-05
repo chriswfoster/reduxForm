@@ -27,7 +27,16 @@ class Grantors extends Component {
   }
 }
 
-
+const cardTarget = {
+  drop(props, monitor, component) {
+    const { id } = props
+    const sourceObj = monitor.getItem()
+    if (id !== sourceObj.listId) component.pushCard(sourceObj.card)
+    return {
+      listId: id
+    }
+  }
+}
 
 //   const mapStateToProps = state => state
 
