@@ -1,0 +1,5 @@
+:root {
+  --button-padding: 8px 12px 8px 12px;
+  --radius-5: 5px;
+}
+@import '~antd/dist/antd.css';

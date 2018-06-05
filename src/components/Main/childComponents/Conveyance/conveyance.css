@@ -1,0 +1,19 @@
+.conveyanceOuterDiv{
+position: relative;
+}
+
+.addConveyance{
+position: absolute;
+right: 5vw;
+top: 3vh;
+}
+
+
+.conveyanceListFlex{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
