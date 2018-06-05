@@ -20,7 +20,6 @@ class GrantorsDrop extends Component {
   render() {
 
     const {connectDropTarget, connectDragSource } = this.props
- 
 
     return connectDragSource(
       connectDropTarget(
@@ -58,11 +57,6 @@ const cardSource = {
 }
 const mapStateToProps = state => state
 
-// export default DropTarget("CARD", cardTarget, (connect, monitor) => ({
-//     connectDropTarget: connect.dropTarget(),
-//     isOver: monitor.isOver(),
-//     canDrop: monitor.canDrop()
-//   }))(GrantorsDrop)
 export default connect(
   mapStateToProps,
   {}

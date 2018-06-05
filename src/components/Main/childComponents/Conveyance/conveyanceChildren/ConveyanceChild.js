@@ -10,13 +10,14 @@ import { Button } from "antd"
 
 class ConveyanceChild extends Component {
   render() {
+    const {listId} = this.props
     return (
       <div>
         <Button>Delete</Button>
         <div className="conveyanceListFlex">
-          <Grantors listId={this.props.listId}/>
+          <Grantors listId={listId}/>
           <Land />
-          <Grantees />
+          <Grantees listId={listId}/>
         </div>
       </div>
     )

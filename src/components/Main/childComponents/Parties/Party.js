@@ -40,7 +40,7 @@ class Party extends Component {
       marginBottom: "1vh"
     }
 
-    const opacity = isDragging ? 0 : 1
+    const opacity = isDragging ? .5 : 1
     return connectDragSource(
       <p style={{ ...partyStyle, opacity }}> {this.props.party} </p>
     )
