@@ -7,6 +7,7 @@ const initialState = {
     {
       grantors: [
         {
+          name: "nobody",
           id: "00000-00000-0000", //UUID of the party that was dropped in
           legal_capacity: "Individual", //String value of the drop down.
           spouse_id: "00000-00000-0000" // UUID of the party dropped in spouse field.
@@ -15,6 +16,7 @@ const initialState = {
       ],
       grantees: [
         {
+          name: "nobody",
           id: "00000-00000-0000", //UUID of the party that was dropped in
           legal_capacity: "Individual", //String value of the drop down.
           spouse_id: "00000-00000-0000" // UUID of the party dropped in spouse field.
@@ -64,6 +66,8 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CONVEYANCE:
       return Object.assign({}, state, { conveyances: action.payload })
+    case HANDLE_DROP:
+      return Object.assign({}, state, { conveyances: action.payload })
 
     default:
       return state
@@ -83,12 +87,9 @@ export function addLand() {
   }
 }
 
-export function handleDrop(src){
-  console.log(src)
+export function handleDrop(newArr) {
   return {
     type: HANDLE_DROP,
-    payload: "something"
+    payload: newArr
   }
 }
-
-

@@ -3,7 +3,7 @@ import React, { Component } from "react"
 import { findDOMNode } from "react-dom"
 import { DragSource, DropTarget } from "react-dnd"
 import { connect } from "react-redux"
-import {handleDrop} from '../../../../ducks/reducer'
+import { handleDrop } from "../../../../ducks/reducer"
 import flow from "lodash/flow"
 
 const Types = {
@@ -16,10 +16,10 @@ const itemSource = {
     return item
   },
   endDrag(props, monitor) {
-    const item = monitor.getItem()
-    console.log(monitor, item)
-    
-    return props.handleDrop(props.party)
+    const item = monitor.getDropResult()
+    let placeholder = props.form.conveyances
+    placeholder[item.listId][item.addType].push({ name: props.party })
+    return props.handleDrop(placeholder)
   }
 }
 
@@ -31,11 +31,9 @@ function collect(connect, monitor) {
 }
 
 class Party extends Component {
-
   render(props) {
-    console.log(this.props)
     const { isDragging, connectDragSource, src } = this.props
-
+    console.log(this.props)
     let partyStyle = {
       borderStyle: "dotted",
       width: "20vw",
@@ -45,8 +43,13 @@ class Party extends Component {
     }
 
     const opacity = isDragging ? 0 : 1
-    return connectDragSource(<p style={{...partyStyle, opacity}}> {this.props.party} </p>)
+    return connectDragSource(
+      <p style={{ ...partyStyle, opacity }}> {this.props.party} </p>
+    )
   }
 }
 const mapStateToProps = state => state
-export default connect(mapStateToProps, {handleDrop})(DragSource(Types.ITEM, itemSource, collect)(Party))
+export default connect(
+  mapStateToProps,
+  { handleDrop }
+)(DragSource(Types.ITEM, itemSource, collect)(Party))

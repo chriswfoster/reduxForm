@@ -19,12 +19,14 @@ class Grantors extends Component {
   }
 
   render(props) {
-    const { connectDropTarget } = this.props
+    const { connectDropTarget, listId } = this.props
     console.log(this.props)
     return connectDropTarget(
-      <div style={{ width: "20vw", height: "20vh", }}>
-        {this.state.cards.map(party => <p>{party}</p>)}
-        <GrantorsDrop />
+      <div style={{ width: "20vw", height: "20vh" }}>
+        {this.props.form.conveyances[listId].grantors.map(party => (
+          <p>{party.name}</p>
+        ))}
+        <GrantorsDrop listId={listId} />
       </div>
     )
   }

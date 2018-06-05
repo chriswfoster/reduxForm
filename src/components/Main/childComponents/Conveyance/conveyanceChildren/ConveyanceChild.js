@@ -14,7 +14,7 @@ class ConveyanceChild extends Component {
       <div>
         <Button>Delete</Button>
         <div className="conveyanceListFlex">
-          <Grantors />
+          <Grantors listId={this.props.listId}/>
           <Land />
           <Grantees />
         </div>
