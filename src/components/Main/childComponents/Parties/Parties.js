@@ -33,20 +33,8 @@ class Parties extends Component {
       }
     ]
 
-    let partyStyle = {
-      borderStyle: "dotted",
-      width: "20vw",
-      padding: "2vh",
-      fontWeight: "bold"
-    }
-
-    const partyList = parties.map((person, ind) =>
-      connectDropTarget(
-        <p style={{ ...partyStyle }} key={ind}>
-          {person.display_name}
-        </p>
-      )
-    )
+    
+    
     return connectDragSource(
       <div style={{ width: "20vw", textAlign: "center" }}>
         <p>Parties</p>

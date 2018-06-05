@@ -19,7 +19,7 @@ class ConveyanceParent extends Component {
         <Button className="addConveyance" onClick={this.handler} size={"large"}>
           Add Conveyance
         </Button>
-        {this.props.form.conveyances.map(conveyance => <ConveyanceChild conveyance={conveyance}/>)}
+        {this.props.form.conveyances.map((conveyance, ind) => <ConveyanceChild key={ind} conveyance={conveyance}/>)}
       </div>
     )
   }

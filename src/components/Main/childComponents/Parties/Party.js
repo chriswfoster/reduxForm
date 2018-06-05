@@ -13,13 +13,21 @@ class Party extends Component {
       connectDragSource,
       connectDropTarget
     } = this.props
-    
+
+    let partyStyle = {
+        borderStyle: "dotted",
+        width: "20vw",
+        padding: "2vh",
+        fontWeight: "bold",
+        marginBottom: "1vh"
+      }
+  
     const opacity = isDragging ? 0 : 1
 
     const { party } = this.props
     return connectDragSource(
       connectDropTarget(
-        <div className="Card-styling" style={{ opacity }}>
+        <div style={{...partyStyle, opacity }}>
           {party}
         </div>
       )
@@ -43,7 +51,7 @@ const cardSource = {
     if (dropResult && dropResult.listId !== item.listId) {
       props.removeCard(item.index)
     }
-    props.updateReducer()
+
   }
 }
 

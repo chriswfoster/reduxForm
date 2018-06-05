@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import Land from "./Land/Land"
-import Grantors from "./Grantors"
+import Grantors from "./Grantors/Grantors"
 import Grantees from './Grantees'
 
 import { Button } from "antd"
