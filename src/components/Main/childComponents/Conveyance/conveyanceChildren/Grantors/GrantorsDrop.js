@@ -3,26 +3,28 @@ import React, { Component } from "react"
 import flow from "lodash/flow"
 
 import { connect } from "react-redux"
+
 import { DropTarget, DragSource } from "react-dnd"
-
-
 
 class GrantorsDrop extends Component {
 
-  render() {
+ 
 
-    const {connectDropTarget, connectDragSource } = this.props
+  render() {
+    const { connectDropTarget, connectDragSource } = this.props
 
     return connectDragSource(
       connectDropTarget(
-        <div style={{ width: "20vw", height: "10vh", borderStyle: "dotted" }}>
+        <div
+          className="grantorsFormCard"
+          style={{ width: "15vw", height: "10vh", borderStyle: "dotted" }}
+        >
           <p>Drop Grantors Here </p>
         </div>
       )
     )
   }
 }
-
 
 const cardTarget = {
   drop(props, monitor, component) {
@@ -44,7 +46,7 @@ const cardSource = {
       index: props.index,
       listId: props.listId,
       card: props.card
-	}
+    }
   }
 }
 const mapStateToProps = state => state

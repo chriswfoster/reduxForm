@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 // import { Field, reduxForm } from "redux-form"
 
-import ConveyanceChild from './conveyanceChildren/ConveyanceChild'
+import ConveyanceChild from "./conveyanceChildren/ConveyanceChild"
 
 import { Button } from "antd"
 
@@ -19,7 +19,11 @@ class ConveyanceParent extends Component {
         <Button className="addConveyance" onClick={this.handler} size={"large"}>
           Add Conveyance
         </Button>
-        {this.props.form.conveyances.map((conveyance, ind) => <ConveyanceChild key={ind} listId={ind} conveyance={conveyance}/>)}
+        <div className="conveyanceYListFlex">
+          {this.props.form.conveyances.map((conveyance, ind) => (
+            <ConveyanceChild key={ind} listId={ind} conveyance={conveyance} />
+          ))}
+        </div>
       </div>
     )
   }

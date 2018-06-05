@@ -1,6 +1,7 @@
 const ADD_CONVEYANCE = "ADD_CONVEYANCE"
 const ADD_LAND = "ADD_LAND"
 const HANDLE_DROP = "HANDLE_DROP"
+const HANDLE_SPLICE = "HANDLE_SPLICE"
 
 const initialState = {
   conveyances: [
@@ -87,7 +88,7 @@ export function addLand() {
   }
 }
 
-export function handleDrop(newArr) {
+export function updateRedux(newArr) {
   return {
     type: HANDLE_DROP,
     payload: newArr

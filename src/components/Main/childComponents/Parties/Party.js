@@ -2,7 +2,7 @@ import React, { Component } from "react"
 
 import { DragSource } from "react-dnd"
 import { connect } from "react-redux"
-import { handleDrop } from "../../../../ducks/reducer"
+import { updateRedux } from "../../../../ducks/reducer"
 
 const Types = {
   ITEM: "party"
@@ -14,10 +14,13 @@ const itemSource = {
     return item
   },
   endDrag(props, monitor) {
-    const item = monitor.getDropResult()
+    let item = monitor.getDropResult() 
     let placeholder = props.form.conveyances
-    placeholder[item.listId][item.addType].push({ name: props.party })
-    return props.handleDrop(placeholder)
+
+    monitor.getDropResult() ? (
+          placeholder[item.listId][item.addType].push({ name: props.party }))
+      : null
+    props.updateRedux(placeholder)
   }
 }
 
@@ -41,7 +44,7 @@ class Party extends Component {
       marginLeft: "2.5vw"
     }
 
-    const opacity = isDragging ? .5 : 1
+    const opacity = isDragging ? 0.5 : 1
     return connectDragSource(
       <p style={{ ...partyStyle, opacity }}> {this.props.party} </p>
     )
@@ -50,5 +53,5 @@ class Party extends Component {
 const mapStateToProps = state => state
 export default connect(
   mapStateToProps,
-  { handleDrop }
+  { updateRedux }
 )(DragSource(Types.ITEM, itemSource, collect)(Party))

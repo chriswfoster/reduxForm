@@ -1,19 +1,43 @@
-.conveyanceOuterDiv{
-position: relative;
+.conveyanceOuterDiv {
+  position: relative;
 }
 
-.addConveyance{
-position: absolute;
-right: 5vw;
-top: 3vh;
+.addConveyance {
+  position: absolute;
+  right: 5vw;
+  top: 3vh;
 }
 
+.conveyanceXListFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
 
-.conveyanceListFlex{
-    display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
+.conveyanceYListFlex {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.conveyanceHead {
+  border-bottom: solid;
+  padding-left: 3vw;
+  padding-bottom: 1vw;
+}
+.conveyanceHead p{
+	margin-right: 2vw;
+	font-size: 1.5em;
+}
+.grantorsFormCard{
+	width: 80%;
+	margin-left: 10%;
+	margin-bottom: 5%
 }

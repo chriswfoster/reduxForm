@@ -20,7 +20,7 @@ let LandForm = props => {
         <Option value="surface">Surface</Option>
         <Option value="royalty">Royalty</Option>
       </Select>
-      <Input placeholder="Amount"/>
+      <Input style={{width: "5vw"}} placeholder="Amount"/>
       <Button>Add Conveyed Interest</Button>
       <p>Reserved Interests</p>
       <Select
