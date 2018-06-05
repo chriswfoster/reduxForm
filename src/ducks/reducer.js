@@ -81,3 +81,12 @@ export function addLand() {
     payload: "something"
   }
 }
+
+export function handleDrop(src){
+  console.log(src)
+  return {
+    type: 
+  }
+}
+
+

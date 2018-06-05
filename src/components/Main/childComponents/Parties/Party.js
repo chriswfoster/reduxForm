@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import { findDOMNode } from "react-dom"
 import { DragSource, DropTarget } from "react-dnd"
 import { connect } from "react-redux"
+import {handleDrop} from '../../../../ducks/reducer'
 import flow from "lodash/flow"
 
 const Types = {
@@ -47,4 +48,4 @@ class Party extends Component {
   }
 }
 const mapStateToProps = state => state
-export default connect(mapStateToProps, {})(DragSource(Types.ITEM, itemSource, collect)(Party))
+export default connect(mapStateToProps, {handleDrop})(DragSource(Types.ITEM, itemSource, collect)(Party))
