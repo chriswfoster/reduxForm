@@ -6,9 +6,9 @@ import flow from "lodash/flow"
 import { connect } from "react-redux"
 import { DropTarget, DragSource } from "react-dnd"
 
-const Types = {
-  ITEM: "party"
-}
+// const Types = {
+//   ITEM: "party"
+// }
 function collect(connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget()
@@ -16,53 +16,11 @@ function collect(connect, monitor) {
 }
 
 class GrantorsDrop extends Component {
-  constructor() {
-    super()
-    this.state = {
-      cards: []
-    }
-  }
-
-  // pushCard(card) {
-  //   console.log("pushCard")
-  //   this.setState(
-  //     update(this.state, {
-  //       cards: {
-  //         $push: [card]
-  //       }
-  //     })
-  //   )
-  // }
-
-  // removeCard(index) {
-  //   console.log("removeCard")
-  //   this.setState(
-  //     update(this.state, {
-  //       cards: {
-  //         $splice: [[index, 1]]
-  //       }
-  //     })
-  //   )
-  // }
-
-  // moveCard(dragIndex, hoverIndex) {
-  //   console.log("moveCard")
-  //   const { cards } = this.state
-  //   const dragCard = cards[dragIndex]
-  //   console.log("moveCard")
-  //   this.setState(
-  //     update(this.state, {
-  //       cards: {
-  //         $splice: [[dragIndex, 1], [hoverIndex, 0, dragCard]]
-  //       }
-  //     })
-  //   )
-  // }
 
   render() {
-    const { cards } = this.state
-    const { canDrop, isOver, connectDropTarget, connectDragSource } = this.props
-    const isActive = canDrop && isOver
+
+    const {connectDropTarget, connectDragSource } = this.props
+ 
 
     return connectDragSource(
       connectDropTarget(
@@ -74,7 +32,7 @@ class GrantorsDrop extends Component {
   }
 }
 
-//I need to fix this below to get the drop working. id is undefined and it compares it to listId
+
 const cardTarget = {
   drop(props, monitor, component) {
     console.log(props)
