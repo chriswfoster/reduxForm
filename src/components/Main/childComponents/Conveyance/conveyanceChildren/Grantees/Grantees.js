@@ -18,12 +18,24 @@ function collect(connect, monitor) {
 
 class Grantees extends Component {
   render() {
-      const {listId} = this.props
+    const { listId } = this.props
     return (
-        <div style={{ width: "20vw", height: "88vh", borderRight: "solid", paddingTop: "2vh", textAlign: "center", fontWeight: "bolt", fontSize: "1.5em" }}>
-          <p>Grantees</p>
-        {this.props.form.conveyances[listId].grantees.map(party => (
-          <Card className="grantorsFormCard">{party.name}</Card>
+      <div
+        style={{
+          width: "20vw",
+          height: "88vh",
+          borderRight: "solid",
+          paddingTop: "2vh",
+          textAlign: "center",
+          fontWeight: "bolt",
+          fontSize: "1.5em"
+        }}
+      >
+        <p>Grantees</p>
+        {this.props.form.conveyances[listId].grantees.map((party, ind) => (
+          <Card key={ind} className="grantorsFormCard">
+            {party.name}
+          </Card>
         ))}
         <GranteesDrop className="grantorsFormCard" listId={this.props.listId} />
       </div>

@@ -20,7 +20,7 @@ class ConveyanceChild extends Component {
 
         <div className="conveyanceXListFlex">
           <Grantors listId={listId} />
-          <Land />
+          <Land listId={listId}/>
           <Grantees listId={listId} />
         </div>
       </div>
