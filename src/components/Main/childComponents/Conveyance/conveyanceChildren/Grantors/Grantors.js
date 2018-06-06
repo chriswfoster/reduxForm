@@ -4,7 +4,7 @@ import GrantorsDrop from "./GrantorsDrop"
 import { DropTarget } from "react-dnd"
 import GrantorsForm from "./GrantorsForm"
 
-import { Card } from "antd"
+import { Card, Icon } from "antd"
 
 const Types = {
   ITEM: "party"
@@ -15,28 +15,21 @@ function collect(connect, monitor) {
   }
 }
 class Grantors extends Component {
-  constructor() {
-    super()
-    this.state = {
-      cards: []
-    }
-  }
-
   render(props) {
     const { connectDropTarget, listId } = this.props
     const { grantors } = this.props.reducer.conveyances[listId]
     return connectDropTarget(
       <div className="grantsOuterDiv">
         <p className="listTitles">Grantors </p>
+        {this.props.reducer.conveyances[listId].grantors.length > 0 ? (
+          <Icon
+            type="check"
+            style={{ display: "inline", color: "green", fontSize: "3vh" }}
+          />
+        ) : null}
         {grantors.map(
           (party, ind) =>
-            party.legal_capacity ? (
-              <Card className="grantorsFormCard" key={ind}>
-                {party.name}
-              </Card>
-            ) : (
-              <GrantorsForm party={party} listId={listId} ind={ind} />
-            )
+              <GrantorsForm key={ind} party={party} listId={listId} ind={ind} />
         )}
         <GrantorsDrop listId={listId} />
       </div>

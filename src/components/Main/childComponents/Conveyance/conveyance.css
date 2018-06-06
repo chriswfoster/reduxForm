@@ -30,7 +30,8 @@
 .conveyanceHead {
   border-bottom: solid;
   padding-left: 3vw;
-  padding-bottom: 1vw;
+  padding-bottom: 1vh;
+  margin-top: 1vh;
 }
 .conveyanceHead p {
   margin-right: 2vw;
@@ -41,20 +42,22 @@
   margin-left: 10%;
   margin-bottom: 5%;
 }
+.landFormCard {
+  width: 100%;
+  margin-bottom: 5%;
+}
 .landOuterDiv {
-  border-right: solid;
   height: 68vh;
   width: 33vw;
-  padding-top: 2vh;
+  margin-top: 2vh;
   overflow-y: auto;
-  border-bottom: solid;
+  border-right: solid;
+  border-left: solid;
 }
 .grantsOuterDiv {
   width: 20vw;
   height: 68vh;
-  border-right: solid;
-  border-bottom: solid;
-  padding-top: 2vh;
+  margin-top: 2vh;
   overflow-y: auto;
 }
 
@@ -62,4 +65,30 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.5em;
+}
+
+.interestsAdded {
+  padding-bottom: 1vh;
+  border-bottom: solid;
+  margin-bottom: 1vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.interestTitles {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.grantorsFlex{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: center;
+	align-content: stretch;
 }

@@ -2,75 +2,93 @@ import React, { Component } from "react"
 
 import { Field, reduxForm } from "redux-form"
 
+import ConveyedInterest from "./ConveyedInterest"
+import ReservedInterest from "./ReservedInterest"
+import { updateRedux } from "../../../../../../ducks/reducer"
+import { connect } from "react-redux"
+
 import { Select, Input, Button, Checkbox, Card } from "antd"
 const Option = Select.Option
 
+class LandForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
 
+    }
+  }
 
-let LandForm = props => {
-  const { handleSubmit, addInterest, ind, land } = props
-  return (
-    <div>
-      <Card title="Conveyed Interests">
-        {/* <p>Conveyed Interests</p> */}
-        {land.conveyed_interests.map((int, i) => (
-          <form onSubmit={e => handleSubmit(e)} key={i}>
-            <Field name="conveyedInterests" type="select" component="Component">
-              <Select
-                defaultValue="Interest Types"
-                style={{ width: 120 }}
-                onChange={e => console.log(e)}
-              >
-                <Option value="all">All</Option>
-                <Option value="minerals">Minerals</Option>
-                <Option value="surface">Surface</Option>
-                <Option value="royalty">Royalty</Option>
-              </Select>
-            </Field>
+  updateInterest = (type, ind, property, value) => {
+    const { listId, landInd } = this.props
+    let placeholder = this.props.reducer.conveyances
+    placeholder[listId].lands[landInd][type][ind][property] = value
+    this.props.updateRedux(placeholder)
+  }
 
-            <Field name="conveyedAmount" component="Component">
-              <Input style={{ width: "10vw" }} placeholder="Amount" />
-            </Field>
-            <Field name="conveyedAllBox" component="Component">
-              <Checkbox>All</Checkbox>
-            </Field>
-          </form>
-        ))}
-        <Button onClick={()=> addInterest("conveyed_interests", ind)}>Add Conveyed Interest</Button>
-      </Card>
+  deleteInterest = (type, ind) => {
+    const { listId, landInd } = this.props
+    let placeholder = this.props.reducer.conveyances
+    placeholder[listId].lands[landInd][type].splice(ind, 1)
+    this.props.updateRedux(placeholder)
+  }
 
-      <Card title="Reserved Interests" style={{marginTop: "2vh"}}>
-        {land.reserved_interests.map((int, i) => (
-          <form onSubmit={e => handleSubmit(e)} key={i}>
-            <Field name="reservedInterests" type="select" component="Component">
-              <Select
-                defaultValue="Interest Types"
-                style={{ width: 120 }}
-                onChange={e => console.log(e)}
-              >
-                <Option value="all">All</Option>
-                <Option value="minerals">Minerals</Option>
-                <Option value="surface">Surface</Option>
-                <Option value="royalty">Royalty</Option>
-              </Select>
-            </Field>
+  saveCheck = () => {
+    let check = false;
+  }
 
-            <Field name="reservedAmount" type="text" component="Component">
-              <Input style={{ width: "10vw" }} placeholder="Amount" />
-            </Field>
-            <Field name="reservedAllBox" component="Component">
-              <Checkbox>All</Checkbox>
-            </Field>
-          </form>
-        ))}
-        <Button onClick={()=> addInterest("reserved_interests", ind)}> Add Reserved Interest </Button>
-      </Card>
+  render(props) {
+    const { handleSubmit, addInterest, landInd, land, listId } = this.props
 
-      <Button type="submit">Save</Button>
-    </div>
-  )
+    return (
+      <div>
+          <div>
+            <p className="interestTitles">Conveyed Interests</p>
+
+            {land.conveyed_interests.map((int, ind) => (
+              <ConveyedInterest
+                updateInterest={this.updateInterest}
+                deleteInterest={this.deleteInterest}
+                key={ind}
+                listId={listId}
+                landInd={landInd}
+                ind={ind}
+              />
+            ))}
+            <Button
+              onClick={() =>
+                this.props.addInterest("conveyed_interests", landInd)
+              }
+            >
+              Add Conveyed Interest
+            </Button>
+          </div>
+
+          <div style={{ marginTop: "2vh" }}>
+            <p className="interestTitles">Reserved Interests</p>
+            {land.reserved_interests.map((int, ind) => (
+              <ReservedInterest
+                updateInterest={this.updateInterest}
+                deleteInterest={this.deleteInterest}
+                key={ind}
+                listId={listId}
+                landInd={landInd}
+                ind={ind}
+              />
+            ))}
+            <Button onClick={() => addInterest("reserved_interests", landInd)}>
+              Add Reserved Interest
+            </Button>
+          </div>
+     
+
+        <Button type="primary">Save</Button>
+      </div>
+    )
+  }
 }
 
-export default reduxForm({
-  form: "land"
-})(LandForm)
+const mapStateToProps = state => state
+export default connect(
+  mapStateToProps,
+  { updateRedux }
+)(LandForm)

@@ -15,10 +15,13 @@ const itemSource = {
   endDrag(props, monitor) {
     let item = monitor.getDropResult() 
     let placeholder = props.reducer.conveyances
-
-    monitor.getDropResult() ? (
-          placeholder[item.listId][item.addType].push({ name: props.party }))
-      : null
+    // I know you're looking at my horrible if/else below, don't judge!
+    if (item&& monitor.getDropResult && item.spouse){
+      placeholder[item.listId][item.addType][item.partyId][item.spouse] = props.party
+    }else if(item !== null && item.addType){
+      placeholder[item.listId][item.addType].push({ name: props.party })
+    }
+  
     props.updateRedux(placeholder)
   }
 }

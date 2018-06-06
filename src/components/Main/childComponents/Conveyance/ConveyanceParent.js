@@ -17,7 +17,7 @@ class ConveyanceParent extends Component {
   
     return (
       <div>
-        <Button className="addConveyance" onClick={()=> addConveyance(this.props.reducer.conveyances)} size={"large"}>
+        <Button className="addConveyance" onClick={()=> this.props.addConveyance(this.props.reducer.conveyances)} size={"large"}>
           Add Conveyance
         </Button>
         <div className="conveyanceYListFlex">

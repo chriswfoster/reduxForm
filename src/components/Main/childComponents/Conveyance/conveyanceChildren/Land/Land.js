@@ -4,7 +4,7 @@ import LandForm from "./LandForm"
 import { connect } from "react-redux"
 import { updateRedux } from "../../../../../../ducks/reducer"
 
-import { Button, Modal, Card } from "antd"
+import { Button, Modal, Card, Input, Icon } from "antd"
 
 class Land extends Component {
   constructor() {
@@ -22,25 +22,25 @@ class Land extends Component {
   }
   handleOk = e => {
     let placeholder = this.props.reducer.conveyances
-    placeholder[this.props.listId].lands.push(  {
-        section_id: this.state.modalText, // UUID of the section
-        conveyed_interests: [
-          {
-            amount: "", // String value
-            interest_types: [], // Array of string values
-            undivided: true,
-            all_interest: false
-          }
-        ],
-        reserved_interests: [
-          {
-            amount: "", // String value
-            interest_types: [], // Array of string values
-            undivided: true,
-            all_interest: false
-          }
-        ]
-      })
+    placeholder[this.props.listId].lands.push({
+      section_id: this.state.modalText, // UUID of the section
+      conveyed_interests: [
+        {
+          amount: "", // String value
+          interest_types: [], // Array of string values
+          undivided: true,
+          all_interest: false
+        }
+      ],
+      reserved_interests: [
+        {
+          amount: "", // String value
+          interest_types: [], // Array of string values
+          undivided: true,
+          all_interest: false
+        }
+      ]
+    })
     this.props.updateRedux(placeholder)
 
     this.setState({
@@ -62,12 +62,13 @@ class Land extends Component {
   }
 
   addInterest = (type, index) => {
+    console.log(this.props)
     let placeholder = this.props.reducer.conveyances
     placeholder[this.props.listId].lands[index][type].push({
-        amount: "", // String value
-        interest_types: [], // Array of string values
-        undivided: true,
-        all_interest: false
+      amount: "", // String value
+      interest_types: [], // Array of string values
+      undivided: true,
+      all_interest: false
     })
     this.props.updateRedux(placeholder)
   }
@@ -76,25 +77,41 @@ class Land extends Component {
     console.log("a: ", a)
   }
 
-  render() {
+  removeLand = ind => {
+    let placeholder = this.props.reducer.conveyances
+    placeholder[this.props.listId].lands.splice(ind, 1)
+    this.props.updateRedux(placeholder)
+  }
 
+  render() {
     const { listId } = this.props
     const { lands } = this.props.reducer.conveyances[listId]
+
     return (
       <div className="landOuterDiv">
         <p className="listTitles"> Land </p>
 
-        {lands.map((land, ind) => (
+        {this.props.reducer.conveyances[listId].lands.map((land, ind) => (
           <Card
+            key={ind}
             className="grantorsFormCard"
             title={`Section ${land.section_id}`}
+            extra={
+              <Icon
+                type="close"
+                style={{ color: "red" }}
+                onClick={() => this.removeLand(ind)}
+              />
+            }
           >
             <LandForm
+              style={{ width: "100%" }}
               handleSubmit={this.handleSubmit}
-              addInterest = {this.addInterest}
+              addInterest={this.addInterest}
               land={land}
               key={ind}
-              ind={ind}
+              landInd={ind}
+              listId={listId}
             />
           </Card>
         ))}
@@ -107,7 +124,7 @@ class Land extends Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <input
+          <Input
             value={this.state.modalText}
             onChange={e => this.textHandler(e)}
             placeholder="Type Section ID here."

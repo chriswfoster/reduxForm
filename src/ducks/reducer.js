@@ -1,7 +1,5 @@
 const ADD_CONVEYANCE = "ADD_CONVEYANCE"
-const ADD_LAND = "ADD_LAND"
 const HANDLE_DROP = "HANDLE_DROP"
-const HANDLE_SPLICE = "HANDLE_SPLICE"
 
 const initialState = {
   conveyances: [
@@ -11,7 +9,8 @@ const initialState = {
           name: "Placeholder, Name",
           id: "00000-00000-0000", //UUID of the party that was dropped in
           legal_capacity: "Individual", //String value of the drop down.
-          spouse_id: "00000-00000-0000" // UUID of the party dropped in spouse field.
+          spouse_id: "00000-00000-0000", // UUID of the party dropped in spouse field.
+          spouse_name: "Sue, Billy"
           //You can omit if no spouse exists
         }
       ],
@@ -106,19 +105,15 @@ export default function reducer(state = initialState, action) {
 }
 
 export function addConveyance(convList) {
+  let test = convList
+  test.push({
+    grantors: [],
+    grantees: [],
+    lands: []
+  })
   return {
     type: ADD_CONVEYANCE,
-    payload: convList.push({
-      grantors: [],
-      grantees: [],
-      lands: []
-    })
-  }
-}
-export function addLand() {
-  return {
-    type: ADD_LAND,
-    payload: "something"
+    payload: test
   }
 }
 
@@ -128,3 +123,5 @@ export function updateRedux(newArr) {
     payload: newArr
   }
 }
+
+export function removeLand() {}
