@@ -32,7 +32,7 @@ class Grantees extends Component {
         }}
       >
         <p>Grantees</p>
-        {this.props.form.conveyances[listId].grantees.map((party, ind) => (
+        {this.props.reducer.conveyances[listId].grantees.map((party, ind) => (
           <Card key={ind} className="grantorsFormCard">
             {party.name}
           </Card>

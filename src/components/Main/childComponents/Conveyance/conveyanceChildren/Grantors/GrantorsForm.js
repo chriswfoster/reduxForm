@@ -10,7 +10,7 @@ const Option = Select.Option
 class GrantorsForm extends Component {
     
     deleteHandler = (ind, listId) => {
-        let placeholder = this.props.form.conveyances
+        let placeholder = this.props.reducer.conveyances
         placeholder[listId].grantors.splice(ind, 1)
         this.props.updateRedux(placeholder)
       }

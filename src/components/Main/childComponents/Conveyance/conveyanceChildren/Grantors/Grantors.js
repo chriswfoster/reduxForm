@@ -24,7 +24,7 @@ class Grantors extends Component {
 
   render(props) {
     const { connectDropTarget, listId } = this.props
-    const { grantors } = this.props.form.conveyances[listId]
+    const { grantors } = this.props.reducer.conveyances[listId]
     console.log(this.props)
     return connectDropTarget(
       <div style={{ width: "20vw", height: "88vh", borderRight: "solid", paddingTop: "2vh", textAlign: "center", fontWeight: "bolt", fontSize: "1.5em" }}>

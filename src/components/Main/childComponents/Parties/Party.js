@@ -15,7 +15,7 @@ const itemSource = {
   },
   endDrag(props, monitor) {
     let item = monitor.getDropResult() 
-    let placeholder = props.form.conveyances
+    let placeholder = props.reducer.conveyances
 
     monitor.getDropResult() ? (
           placeholder[item.listId][item.addType].push({ name: props.party }))

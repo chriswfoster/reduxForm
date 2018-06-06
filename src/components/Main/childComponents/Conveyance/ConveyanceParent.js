@@ -20,7 +20,7 @@ class ConveyanceParent extends Component {
           Add Conveyance
         </Button>
         <div className="conveyanceYListFlex">
-          {this.props.form.conveyances.map((conveyance, ind) => (
+          {this.props.reducer.conveyances.map((conveyance, ind) => (
             <ConveyanceChild key={ind} listId={ind} conveyance={conveyance} />
           ))}
         </div>

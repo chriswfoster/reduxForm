@@ -21,7 +21,7 @@ class Land extends Component {
       });
     }
     handleOk = (e) => {
-        let placeholder = this.props.form.conveyances
+        let placeholder = this.props.reducer.conveyances
         placeholder[this.props.listId].lands.push({section_id: this.state.modalText})
         this.props.updateRedux(placeholder)
 
