@@ -59,6 +59,36 @@ const initialState = {
     },
     {
       display_name: "Foster, Chris"
+    },
+    {
+      display_name: "Jordan, Michael"
+    },
+    {
+      display_name: "Busey, Gary"
+    },
+    {
+      display_name: "Winfrey, Oprah"
+    },
+    {
+      display_name: "Fawcett, Farrah"
+    },
+    {
+      display_name: "Gosling, Ryan"
+    },
+    {
+      display_name: "Cage, Nick"
+    },
+    {
+      display_name: "LaBeouf, Shia"
+    },
+    {
+      display_name: "Witherspoon, Reese"
+    },
+    {
+      display_name: "Culkin, Macaulay"
+    },
+    {
+      display_name: "Reynolds, Ryan"
     }
   ]
 }
@@ -75,10 +105,19 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-export function addConveyance() {
+export function addConveyance(convList) {
+  // convList.push({
+  //   grantors: [],
+  //   grantees: [],
+  //   lands: []
+  // })
   return {
     type: ADD_CONVEYANCE,
-    payload: { grantors: [], grantees: [], lands: [] }
+    payload: convList.push({
+      grantors: [],
+      grantees: [],
+      lands: []
+    })
   }
 }
 export function addLand() {

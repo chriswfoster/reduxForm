@@ -25,7 +25,6 @@ class Grantors extends Component {
   render(props) {
     const { connectDropTarget, listId } = this.props
     const { grantors } = this.props.reducer.conveyances[listId]
-    console.log(this.props)
     return connectDropTarget(
       <div className="grantsOuterDiv">
         <p className="listTitles">Grantors </p>

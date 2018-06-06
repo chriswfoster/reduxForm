@@ -43,15 +43,17 @@
 }
 .landOuterDiv {
   border-right: solid;
-  height: 88vh;
+  height: 68vh;
   width: 33vw;
   padding-top: 2vh;
   overflow-y: auto;
+  border-bottom: solid;
 }
 .grantsOuterDiv {
   width: 20vw;
-  height: 88vh;
+  height: 68vh;
   border-right: solid;
+  border-bottom: solid;
   padding-top: 2vh;
   overflow-y: auto;
 }

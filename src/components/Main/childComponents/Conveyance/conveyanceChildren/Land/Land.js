@@ -49,7 +49,6 @@ class Land extends Component {
     })
   }
   handleCancel = e => {
-    console.log(e)
     this.setState({
       visible: false,
       modalText: ""
@@ -63,7 +62,6 @@ class Land extends Component {
   }
 
   addInterest = (type, index) => {
-      console.log(type, index)
     let placeholder = this.props.reducer.conveyances
     placeholder[this.props.listId].lands[index][type].push({
         amount: "", // String value

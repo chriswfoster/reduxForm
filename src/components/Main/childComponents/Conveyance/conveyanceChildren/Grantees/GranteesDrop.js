@@ -28,10 +28,8 @@ class GranteesDrop extends Component {
 
 const cardTarget = {
     drop(props, monitor, component) {
-      console.log(props)
       const { id } = props
       const sourceObj = monitor.getItem()
-      console.log(sourceObj, "is sourceObj")
       if (id !== sourceObj.listId) component.pushCard(sourceObj.card)
       return {
         listId: props.listId,

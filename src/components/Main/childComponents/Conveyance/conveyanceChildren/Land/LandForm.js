@@ -9,7 +9,6 @@ const Option = Select.Option
 
 let LandForm = props => {
   const { handleSubmit, addInterest, ind, land } = props
-console.log(land)
   return (
     <div>
       <Card title="Conveyed Interests">
