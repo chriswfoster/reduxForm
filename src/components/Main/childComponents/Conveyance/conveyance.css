@@ -32,12 +32,32 @@
   padding-left: 3vw;
   padding-bottom: 1vw;
 }
-.conveyanceHead p{
-	margin-right: 2vw;
-	font-size: 1.5em;
+.conveyanceHead p {
+  margin-right: 2vw;
+  font-size: 1.5em;
 }
-.grantorsFormCard{
-	width: 80%;
-	margin-left: 10%;
-	margin-bottom: 5%
+.grantorsFormCard {
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+}
+.landOuterDiv {
+  border-right: solid;
+  height: 88vh;
+  width: 33vw;
+  padding-top: 2vh;
+  overflow-y: auto;
+}
+.grantsOuterDiv {
+  width: 20vw;
+  height: 88vh;
+  border-right: solid;
+  padding-top: 2vh;
+  overflow-y: auto;
+}
+
+.listTitles {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
 }

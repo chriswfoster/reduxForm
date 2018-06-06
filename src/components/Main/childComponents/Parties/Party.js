@@ -9,7 +9,6 @@ const Types = {
 }
 const itemSource = {
   beginDrag(props) {
-    console.log("beginDrag")
     const item = { src: props.party, id: props.id }
     return item
   },
@@ -34,7 +33,6 @@ function collect(connect, monitor) {
 class Party extends Component {
   render(props) {
     const { isDragging, connectDragSource } = this.props
-    console.log(this.props)
     let partyStyle = {
       borderStyle: "dotted",
       width: "15vw",

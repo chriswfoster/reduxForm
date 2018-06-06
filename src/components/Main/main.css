@@ -6,3 +6,10 @@
 	align-items: stretch;
 	align-content: stretch;
 }
+.partiesOuterDiv{
+	width: 20vw; 
+	text-align: center;
+	 height: 100vh; 
+	 border-right: solid; 
+	 overflow-y: auto;
+}

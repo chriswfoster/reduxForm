@@ -16,7 +16,7 @@ class GrantorsForm extends Component {
       }
 
       selectHandler(ind, listId, val){
-        let placeholder = this.props.form.conveyances
+        let placeholder = this.props.reducer.conveyances
         placeholder[listId].grantors[ind].legal_capacity=val
         this.props.updateRedux(placeholder)
       }

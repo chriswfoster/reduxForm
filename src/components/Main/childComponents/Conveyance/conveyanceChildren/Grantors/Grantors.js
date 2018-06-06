@@ -2,9 +2,9 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import GrantorsDrop from "./GrantorsDrop"
 import { DropTarget } from "react-dnd"
-import GrantorsForm from './GrantorsForm'
+import GrantorsForm from "./GrantorsForm"
 
-import {  Card } from "antd"
+import { Card } from "antd"
 
 const Types = {
   ITEM: "party"
@@ -27,18 +27,19 @@ class Grantors extends Component {
     const { grantors } = this.props.reducer.conveyances[listId]
     console.log(this.props)
     return connectDropTarget(
-      <div style={{ width: "20vw", height: "88vh", borderRight: "solid", paddingTop: "2vh", textAlign: "center", fontWeight: "bolt", fontSize: "1.5em" }}>
-  <p>Grantors </p>
+      <div className="grantsOuterDiv">
+        <p className="listTitles">Grantors </p>
         {grantors.map(
           (party, ind) =>
             party.legal_capacity ? (
-              <Card className="grantorsFormCard" key={ind}>{party.name}</Card>
-              
+              <Card className="grantorsFormCard" key={ind}>
+                {party.name}
+              </Card>
             ) : (
-              <GrantorsForm party={party} listId={listId} ind={ind}/>
+              <GrantorsForm party={party} listId={listId} ind={ind} />
             )
         )}
-        <GrantorsDrop listId={listId}/>
+        <GrantorsDrop listId={listId} />
       </div>
     )
   }

@@ -8,10 +8,9 @@ class Parties extends Component {
  
 
 render(props) {
-  console.log( this.props)
   const {parties} = this.props.reducer
 return(
-<div style={{ width: "20vw", textAlign: "center", height: "100vh", borderRight: "solid", overflowY: "auto" }}>
+<div className="partiesOuterDiv">
 <p style={{fontWeight: "bold", fontSize: "33px"}}>Parties</p>
 {parties.map((person, ind) => (
   <Party party={person.display_name} id={ind} key={ind} />
