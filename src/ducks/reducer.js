@@ -106,11 +106,6 @@ export default function reducer(state = initialState, action) {
 }
 
 export function addConveyance(convList) {
-  // convList.push({
-  //   grantors: [],
-  //   grantees: [],
-  //   lands: []
-  // })
   return {
     type: ADD_CONVEYANCE,
     payload: convList.push({
